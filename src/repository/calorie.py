@@ -1,3 +1,4 @@
+import datetime
 from sqlalchemy.orm import Session
 from sqlalchemy import desc
 
@@ -12,9 +13,14 @@ async def get_calories(db: Session) -> list:
     return db.query(Calorie).order_by(desc(Calorie.created_at)).all()
 
 
-async def add_calorie(body, db: Session):
-    body.calorie = calculate_calorie(body.height, body.weight, body.age)
-    calorie = Calorie(**(body))
+async def add_calorie(date: datetime.date,
+                                 height: float, 
+                                 weight:float, 
+                                 age: int, 
+                                 db: Session):
+    
+    calculate = calculate_calorie(height, weight, age)
+    calorie = Calorie(date=date, height=height, weight=weight, age=age, calorie=calculate)
     db.add(calorie)
     db.commit()
     db.refresh(calorie)

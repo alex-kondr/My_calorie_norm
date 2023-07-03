@@ -1,11 +1,7 @@
+python
 fastapi
-jinja2
-psycopg2-binary
-cloudinary
-sqlalchemy
-pydantic[dotenv]
 uvicorn
-python-jose
+jinja2
 python-multipart
-passlib
-redis
+pydantic
+sqlalchemy

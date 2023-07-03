@@ -12,7 +12,7 @@ class Calorie(Base):
     date = Column(Date)
     height = Column(Float, default=0)
     weight = Column(Float, default=0)
-    age = Column(Float, default=0)
+    age = Column(Integer, default=0)
     calorie = Column(Float, default=0)
     created_at = Column(DateTime, default=func.now())
     updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
