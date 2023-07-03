@@ -37,11 +37,12 @@
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
           <table class="u-table-entity">
             <colgroup>
-              <col width="23.6%">
-              <col width="18.4%">
-              <col width="20%">
-              <col width="18%">
-              <col width="20%">
+              <col width="15%">
+              <col width="15%">
+              <col width="15%">
+              <col width="15%">
+              <col width="15%">
+              <col width="15%">
             </colgroup>
             <thead class="u-align-center u-table-header u-white u-table-header-1">
               <tr style="height: 59px;">
@@ -51,14 +52,15 @@
                   </span>
                   <br>
                 </th>
-                <th class="u-palette-3-base u-table-cell u-table-cell-2"><b>Зріст</b>
+                <th class="u-palette-3-base u-table-cell u-table-cell-1"><b>Зріст</b>
                 </th>
-                <th class="u-palette-2-base u-table-cell u-table-cell-3"><b>Вага</b>
+                <th class="u-palette-2-base u-table-cell u-table-cell-1"><b>Вага</b>
                 </th>
-                <th class="u-palette-4-base u-table-cell u-table-cell-4"><b>вік</b>
+                <th class="u-palette-4-base u-table-cell u-table-cell-1"><b>вік</b>
                   <br>
                 </th>
-                <th class="u-palette-4-base u-table-cell u-table-cell-5">калорії</th>
+                <th class="u-palette-4-base u-table-cell u-table-cell-1">калорії</th>
+                <th class="u-palette-3-base u-table-cell u-table-cell-1">Дія</th>
               </tr>
             </thead>
             <tbody class="u-align-center u-palette-5-dark-3 u-table-body u-table-body-1">
@@ -70,6 +72,9 @@
                 <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">{{calorie.weight}}</td>
                 <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">{{calorie.age}}</td>
                 <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">{{calorie.calorie}}</td>
+                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">
+                  <a href="/delete_calorie/{{calorie.id}}" class="u-palette-4-base u-table-cell u-table-cell-1">Видалити</a>
+                </td>
               </tr>    
               {% endfor %}     
 
