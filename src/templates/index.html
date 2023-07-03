@@ -32,6 +32,7 @@
   <body data-home-page="" data-home-page-title="Calorie" class="u-body u-xl-mode" data-lang="ua">
     <section class="u-align-center u-clearfix u-palette-5-dark-3 u-section-1" id="carousel_f203">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <a href="/add_calorie" class="u-border-2 u-border-hover-palette-1-base u-border-palette-1-base u-btn u-btn-round u-button-style u-hover-palette-1-base u-none u-radius-50 u-btn-1">додати запис</a>
         <h1 class="u-text u-text-1">Супер калорії</h1>
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
           <table class="u-table-entity">
@@ -61,20 +62,17 @@
               </tr>
             </thead>
             <tbody class="u-align-center u-palette-5-dark-3 u-table-body u-table-body-1">
+
+              {% for calorie in calories %}
               <tr style="height: 49px;">
-                <td class="u-align-left u-border-1 u-border-palette-5-dark-2 u-first-column u-table-cell">03.07.2023</td>
-                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">150</td>
-                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">67</td>
-                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">35</td>
-                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">655</td>
-              </tr>
-              <tr style="height: 54px;">
-                <td class="u-align-left u-border-1 u-border-palette-5-dark-2 u-table-cell">04.07.2023</td>
-                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">151</td>
-                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">68</td>
-                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">35</td>
-                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">656</td>
-              </tr>
+                <td class="u-align-left u-border-1 u-border-palette-5-dark-2 u-first-column u-table-cell">{{calorie.date}}</td>
+                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">{{calorie.height}}</td>
+                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">{{calorie.weight}}</td>
+                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">{{calorie.age}}</td>
+                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">{{calorie.calorie}}</td>
+              </tr>    
+              {% endfor %}     
+
             </tbody>
           </table>
         </div>

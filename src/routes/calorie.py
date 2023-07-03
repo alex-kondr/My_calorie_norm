@@ -17,27 +17,13 @@ app_dir = Path(__file__).parent.parent
 templates = Jinja2Templates(directory=app_dir / "templates")
 
 
-# @router.get('/add')
-# async def add_news(request: Request,
-#                    token: Optional[str] = Query(default=None),
-#                    db: Session = Depends(get_db)
-#                    ):
-#     message = None
-#     try:
-#         if not await auth_service.get_current_user(token, db):
-#             message = "Потрібно авторизуватись."
-
-#     except OperationalError as err:
-#         print(err)
-#         message = "Помилка підключення до бази даних."
-
-#     print(f"{message=}")
-
-#     return templates.TemplateResponse("add_news.html", {"request": request,
-#                                                         "message": message,
-#                                                         "token": token,
-#                                                         }
-#                                       )
+@router.get('/add_calorie')
+async def add_calorie(request: Request,
+                   db: Session = Depends(get_db)
+                   ):
+    return templates.TemplateResponse("add_calorie.html", {"request": request
+                                                          }
+                                      )
 
 
 # @router.post('/add')
@@ -63,18 +49,11 @@ templates = Jinja2Templates(directory=app_dir / "templates")
 
 @router.get('/')
 async def calorie(request: Request, db: Session = Depends(get_db)):
-    
-    class Body:
-        def __init__(self):
-            self.date = date(year=2023, month=7, day=3)
-            self.height = 150
-            self.weight = 68
-            self.age = 35
-        
-    body = Body()
-    
-    await repository_calorie.add_calorie(body, db)
-    return templates.TemplateResponse("index.html", {"request": request})
+    calories = await repository_calorie.get_calories(db)
+    return templates.TemplateResponse("index.html", {
+        "request": request,
+        "calories": calories
+        })
 
 
 # @router.get('/{news_id}')

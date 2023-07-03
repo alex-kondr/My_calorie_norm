@@ -6,10 +6,19 @@
   min-height: 734px;
 }
 
+.u-section-1 .u-btn-1 {
+  border-style: solid;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  margin: 119px auto 0;
+}
+
 .u-section-1 .u-text-1 {
   font-weight: 700;
   width: 598px;
-  margin: 55px auto 0;
+  margin: 74px auto 0;
 }
 
 .u-section-1 .u-table-1 {
