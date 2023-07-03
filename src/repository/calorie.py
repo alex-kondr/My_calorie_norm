@@ -6,7 +6,7 @@ from src.database.models import Calorie
 
 
 def calculate_calorie(height, weight, age):
-    return round(655.1 + 9.563 * height + 1.85 * weight - 4.767 * age, 1)
+    return round(655.1 + 9.563 * weight + 1.85 * height - 4.767 * age, 1)
 
 
 async def get_calories(db: Session) -> list:
