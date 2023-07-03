@@ -1,7 +1,5 @@
-python
 fastapi
 uvicorn
-jinja2
 python-multipart
 pydantic
 sqlalchemy
