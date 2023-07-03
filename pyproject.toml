@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "My_calorie_norm"
+version = "0.1.0"
+description = ""
+authors = ["Oleksandr Kondratiuk <alex_kondr@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "My_calorie_norm"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.95.0"
+uvicorn = "^0.21.1"
+jinja2 = "^3.1.2"
+python-multipart = "^0.0.6"
+pydantic = {extras = ["email"], version = "^1.10.7"}
+sqlalchemy = "^2.0.16"
+alembic = "^1.11.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
