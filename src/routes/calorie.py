@@ -1,5 +1,4 @@
 import datetime
-from pathlib import Path
 from typing import Annotated
 
 from fastapi import Form, Request, Depends, APIRouter
@@ -12,8 +11,7 @@ from src.repository import calorie as repository_calorie
 
 router = APIRouter()
 
-app_dir = Path(__file__).parent.parent
-templates = Jinja2Templates(directory=app_dir / "templates")
+templates = Jinja2Templates(directory="src/templates")
 
 
 @router.post('/add_calorie')
@@ -21,7 +19,6 @@ async def add_calorie(date: Annotated[datetime.date, Form()],
                       height: Annotated[float, Form()],
                       weight: Annotated[float, Form()],
                       age: Annotated[int, Form()],
-                      request: Request,
                       db: Session = Depends(get_db)
                       ):
     

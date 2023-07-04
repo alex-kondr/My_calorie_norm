@@ -1,87 +1,194 @@
-
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="ua">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-        <meta name="keywords" content="Супер калорії">
-        <meta name="description" content="">
-        <title>Calorie</title>
-        <link rel="stylesheet" href="//capp.nicepage.com/d2e612bc1b752b82816bcc1c82c8936733d65e79/nicepage.css" media="screen">
-        <link rel="stylesheet" href="{{url_for('static', path='/css/nicepage-site.css')}}" media="screen">
-        <link rel="stylesheet" href="{{url_for('static', path='/css/Calorie.css')}}" media="screen">
-        <script class="u-script" type="text/javascript" src="{{url_for('static', path='/js/jquery-1.9.1.min.js')}}" defer=""></script>
-        <script class="u-script" type="text/javascript" src="{{url_for('static', path='/js/nicepage.js')}}" defer=""></script>
-        <meta name="generator" content="Nicepage 5.12.9, nicepage.com">
-        <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-                
-        <script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "Organization",
-                "name": "table"
-            }
-        </script>
+<html style="font-size: 16px" lang="ua">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="keywords" content="Супер калорії" />
+    <meta name="description" content="" />
+    <title>Calorie</title>
+    <link
+      rel="stylesheet"
+      href="//capp.nicepage.com/d2e612bc1b752b82816bcc1c82c8936733d65e79/nicepage.css"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', path='/css/nicepage-site.css')}}"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', path='/css/Calorie.css')}}"
+      media="screen"
+    />
+    <script
+      class="u-script"
+      type="text/javascript"
+      src="{{url_for('static', path='/js/jquery-1.9.1.min.js')}}"
+      defer=""
+    ></script>
+    <script
+      class="u-script"
+      type="text/javascript"
+      src="{{url_for('static', path='/js/nicepage.js')}}"
+      defer=""
+    ></script>
+    <meta name="generator" content="Nicepage 5.12.9, nicepage.com" />
+    <link
+      id="u-theme-google-font"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i"
+    />
 
-        <meta name="theme-color" content="#478ac9">
-        <meta property="og:title" content="Calorie">
-        <meta property="og:description" content="">
-        <meta property="og:type" content="website">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "table"
+      }
+    </script>
+
+    <meta name="theme-color" content="#478ac9" />
+    <meta property="og:title" content="Calorie" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
   </head>
 
-  <body data-home-page="" data-home-page-title="Calorie" class="u-body u-xl-mode" data-lang="ua">
-    <section class="u-align-center u-clearfix u-palette-5-dark-3 u-section-1" id="carousel_f203">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <a href="/add_calorie" class="u-border-2 u-border-hover-palette-1-base u-border-palette-1-base u-btn u-btn-round u-button-style u-hover-palette-1-base u-none u-radius-50 u-btn-1">додати запис</a>
-        <h1 class="u-text u-text-1">Супер калорії</h1>
-        <div class="u-expanded-width u-table u-table-responsive u-table-1">
-          <table class="u-table-entity">
-            <colgroup>
-              <col width="15%">
-              <col width="15%">
-              <col width="15%">
-              <col width="15%">
-              <col width="15%">
-              <col width="15%">
-            </colgroup>
-            <thead class="u-align-center u-table-header u-white u-table-header-1">
-              <tr style="height: 59px;">
-                <th class="u-align-left u-table-cell u-table-cell-1"><span class="u-icon u-text-palette-4-base u-icon-1"></span>&nbsp;&nbsp;Дата&nbsp;&nbsp;<span class="u-icon"></span><span class="u-icon"></span>
-                  <span style="font-weight: 400;">
-                    <span style="font-weight: 700;"></span>
-                  </span>
-                  <br>
-                </th>
-                <th class="u-palette-3-base u-table-cell u-table-cell-1"><b>Зріст</b>
-                </th>
-                <th class="u-palette-2-base u-table-cell u-table-cell-1"><b>Вага</b>
-                </th>
-                <th class="u-palette-4-base u-table-cell u-table-cell-1"><b>вік</b>
-                  <br>
-                </th>
-                <th class="u-palette-4-base u-table-cell u-table-cell-1">калорії</th>
-                <th class="u-palette-3-base u-table-cell u-table-cell-1">Дія</th>
-              </tr>
-            </thead>
-            <tbody class="u-align-center u-palette-5-dark-3 u-table-body u-table-body-1">
-
-              {% for calorie in calories %}
-              <tr style="height: 49px;">
-                <td class="u-align-left u-border-1 u-border-palette-5-dark-2 u-first-column u-table-cell">{{calorie.date}}</td>
-                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">{{calorie.height}}</td>
-                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">{{calorie.weight}}</td>
-                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">{{calorie.age}}</td>
-                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">{{calorie.calorie}}</td>
-                <td class="u-border-1 u-border-palette-5-dark-2 u-table-cell">
-                  <a href="/delete_calorie/{{calorie.id}}" class="u-palette-4-base u-table-cell u-table-cell-1">Видалити</a>
-                </td>
-              </tr>    
-              {% endfor %}     
-
-            </tbody>
-          </table>
-        </div>
+  <body
+    data-home-page=""
+    data-home-page-title="Calorie"
+    class="u-body u-xl-mode"
+    data-lang="ua"
+  >
+    <section
+      class="skrollable u-align-center u-clearfix u-image u-section-1"
+      id="carousel_f203"
+      data-image-width="2000"
+      data-image-height="1333"
+    >
+      <a
+        href="/add_calorie"
+        class="u-border-hover-palette-1-base u-btn u-btn-round u-button-style u-hover-feature u-hover-palette-4-light-2 u-palette-4-dark-1 u-radius-50 u-btn-1"
+        >додати запис</a
+      >
+      <h1 class="u-text u-text-1">Супер калорії</h1>
+      <div
+        class="u-align-center u-expanded-width-sm u-expanded-width-xs u-table u-table-responsive u-table-1"
+      >
+        <table class="u-table-entity">
+          <colgroup>
+            <col width="2%" />
+            <col width="16.3%" />
+            <col width="7.6%" />
+            <col width="18%" />
+            <col width="22.2%" />
+            <col width="33.9%" />
+          </colgroup>
+          <thead
+            class="u-align-center u-custom-font u-heading-font u-table-header u-white u-table-header-1"
+          >
+            <tr style="height: 49px">
+              <th class="u-palette-3-light-2 u-table-cell u-table-cell-1">
+                Дата
+              </th>
+              <th class="u-palette-3-light-1 u-table-cell u-table-cell-2">
+                <b>Зріст</b>
+              </th>
+              <th class="u-palette-2-light-1 u-table-cell u-table-cell-3">
+                <b>Вага</b>
+              </th>
+              <th class="u-palette-3-light-1 u-table-cell u-table-cell-4">
+                <b>Вік</b>
+                <br />
+              </th>
+              <th class="u-palette-2-light-2 u-table-cell u-table-cell-5">
+                Калорії
+              </th>
+              <th class="u-palette-3-light-2 u-table-cell u-table-cell-6">
+                Дія
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="u-align-center u-palette-5-dark-3 u-table-body u-table-body-1"
+          >
+            {% for calorie in calories %}
+            <tr style="height: 57px">
+              <td
+                class="u-border-3 u-border-palette-5-dark-2 u-table-cell u-table-cell-7"
+              >
+                {{calorie.date}}
+              </td>
+              <td
+                class="u-border-3 u-border-palette-5-dark-2 u-table-cell u-table-cell-8"
+              >
+                {{calorie.height}}
+              </td>
+              <td
+                class="u-border-3 u-border-palette-5-dark-2 u-table-cell u-table-cell-9"
+              >
+                {{calorie.weight}}
+              </td>
+              <td
+                class="u-border-3 u-border-palette-5-dark-2 u-table-cell u-table-cell-10"
+              >
+                {{calorie.age}}
+              </td>
+              <td
+                class="u-border-3 u-border-palette-5-dark-2 u-table-cell u-table-cell-11"
+              >
+                {{calorie.calorie}}
+              </td>
+              <td
+                class="u-border-3 u-border-palette-5-dark-2 u-table-cell u-table-cell-12"
+              >
+                <a
+                  class="u-btn u-btn-round u-button-style u-custom-color-3 u-custom-font u-heading-font u-hover-custom-color-4 u-hover-feature u-radius-50 u-btn-2"
+                  href="/delete_calorie/{{calorie.id}}"
+                >
+                  <span class="u-custom-color-4 u-icon u-icon-1">
+                    <svg
+                      class="u-svg-content"
+                      viewBox="0 0 50 50"
+                      x="0px"
+                      y="0px"
+                      style="width: 1em; height: 1em"
+                    >
+                      <circle
+                        style="fill: #d75a4a"
+                        cx="25"
+                        cy="25"
+                        r="25"
+                      ></circle>
+                      <polyline
+                        style="
+                          fill: none;
+                          stroke: #ffffff;
+                          stroke-width: 2;
+                          stroke-linecap: round;
+                          stroke-miterlimit: 10;
+                        "
+                        points="16,34 25,25 34,16"
+                      ></polyline>
+                      <polyline
+                        style="
+                          fill: none;
+                          stroke: #ffffff;
+                          stroke-width: 2;
+                          stroke-linecap: round;
+                          stroke-miterlimit: 10;
+                        "
+                        points="16,16 25,25 34,34"
+                      ></polyline>
+                    </svg> </span
+                  >&nbsp;Видалити
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
     </section>
-  
-</body></html>
+  </body>
+</html>

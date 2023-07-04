@@ -3,8 +3,10 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import SQLAlchemyError
 from fastapi import HTTPException, status
 
-from src.conf.config import SQLALCHEMY_DATABASE_URL
+from src.conf.config import settings
 
+
+SQLALCHEMY_DATABASE_URL = settings.sqlalchemy_database_url
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, echo=True)
 SessionLocal = sessionmaker(bind=engine)

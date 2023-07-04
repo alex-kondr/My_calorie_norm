@@ -1,21 +1,14 @@
-from pathlib import Path
-
-from fastapi import FastAPI, Request
-from fastapi.templating import Jinja2Templates
+from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 
 from src.routes import calorie
 
 
-
-app_dir = Path(__file__).parent
-
 app = FastAPI()
 app.include_router(calorie.router)
 
 app.mount("/src/static", StaticFiles(directory="src/static"), name="static")
-templates = Jinja2Templates(directory=app_dir / "src/templates")
 
 
 if __name__ == "__main__":
