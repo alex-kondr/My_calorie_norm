@@ -32,25 +32,25 @@
       <div class="u-clearfix u-sheet u-valign-middle-sm u-valign-middle-xs u-sheet-1">
         <div class="u-align-center u-border-14 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-base u-container-style u-custom-border u-group u-opacity u-opacity-55 u-palette-1-base u-shape-rectangle u-group-1">
           <div class="u-container-layout u-container-layout-1">
-            <h2 class="u-text u-text-default u-text-palette-2-base u-text-1">Додати новий запис</h2>
+            <h2 class="u-text u-text-default u-text-palette-2-base u-text-1">Добова норма калорій</h2>
             <div class="u-form u-login-control u-form-1">
                 
-              <form action="/add_calorie", method="post" class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 0px;">
-                <div class="u-form-group u-form-name u-form-password u-label-top">
-                  <label for="username-a30d" class="u-label u-text-palette-2-base u-label-1">Дата *</label>
-                  <input type="date" placeholder="Дата" id="date" name="date" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-input-1" required="">
-                </div>
+              <form class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 0px;">
                 <div class="u-form-group u-form-name u-form-password u-label-top">
                   <label for="username-a30d" class="u-label u-text-palette-2-base u-label-1">Зріст *</label>
-                  <input type="text" placeholder="Зріст" id="height" name="height" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-input-1" required="">
+                  <input type="text" placeholder="Зріст" id="height" name="height" value="161" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-input-1" required="">
                 </div>
                 <div class="u-form-group u-form-password u-label-top">
                   <label for="password-a30d" class="u-label u-text-palette-2-base u-label-2">Вага *</label>
-                  <input type="text" placeholder="Вага" id="weight" name="weight" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-input-2" required="">
+                  <input type="text" placeholder="Вага" id="weight" name="weight" value="84.4" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-input-2" required="">
                 </div>
                 <div class="u-form-group u-form-password u-label-top">
                   <label for="password-a30d" class="u-label u-text-palette-2-base u-label-2">Вік *</label>
-                  <input type="text" placeholder="Вік" id="age" name="age" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-input-2" required="">
+                  <input type="text" placeholder="Вік" id="age" name="age" value="35" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-input-2" required="">
+                </div>
+                <div class="u-form-group u-form-password u-label-top">
+                  <label for="password-a30d" class="u-label u-text-palette-2-base u-label-2">Добова норма калорій *</label>
+                  <input type="text" placeholder="Калорії" id="calorie" name="calorie" value="1593.2" disabled class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-input-2" required="">
                 </div>
                 <div class="u-align-center u-form-group u-form-password u-form-submit u-label-top">
                   <input type="submit" value="submit" class="u-form-control-hidden">
@@ -63,6 +63,21 @@
         </div>
       </div>
     </section>
+
+    <script>
+      const form = document.forms[0]
+
+      form.addEventListener('submit', async event => {
+        event.preventDefault()
+        height = parseFloat(form.height.value, 1)
+        weight = parseFloat(form.weight.value, 1)
+        age = parseInt(form.age.value)
+
+        cal = 655.1 + 9.563 * weight + 1.85 * height - 4.767 * age
+        calorie.value = cal.toFixed(1)
+
+      })
+    </script>
       
 </body>
 </html>
