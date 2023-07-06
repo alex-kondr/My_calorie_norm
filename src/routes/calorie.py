@@ -8,6 +8,7 @@ from sqlalchemy.orm import Session
 
 from src.database.db import get_db
 from src.repository import calorie as repository_calorie
+from src.repository.login import google_authenticate
 
 router = APIRouter()
 
@@ -43,9 +44,9 @@ templates = Jinja2Templates(directory="src/templates")
     
     
 @router.get('/')
-async def get_calorie(request: Request):#, db: Session = Depends(get_db)):
+async def get_calorie(code: str, request: Request):#, db: Session = Depends(get_db)):
     # calories = await repository_calorie.get_calories(db)
-    print(request.headers)
+    # google_authenticate(code)
     return templates.TemplateResponse("norm_calorie.html", {"request": request})
     
     
