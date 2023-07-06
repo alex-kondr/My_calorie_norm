@@ -15,14 +15,14 @@ from googleapiclient.errors import HttpError
 def google_login():
     token_request_uri = "https://accounts.google.com/o/oauth2/auth"
     response_type = "code"
-    client_id = "51231847720-otntk150uenr9slj2t5i75ojq7ug8mg7.apps.googleusercontent.com"
-    redirect_uri = "https://fat-lory-alex-kondr.koyeb.app/"
+    client_id = "51231847720-s25mhf3poa81tl5dfqpbfsuad8dhp8uf.apps.googleusercontent.com"
+    redirect_uri = "http://127.0.0.1:8000"
     scope = "https://www.googleapis.com/auth/userinfo.profile"
     url = f"{token_request_uri}?response_type={response_type}&client_id={client_id}&redirect_uri={redirect_uri}&scope={scope}"
     
     response = requests.get(url)
     
-    return print(response)
+    return print(url)
 
 google_login()
 

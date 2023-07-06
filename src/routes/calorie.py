@@ -45,6 +45,7 @@ templates = Jinja2Templates(directory="src/templates")
 @router.get('/')
 async def get_calorie(request: Request):#, db: Session = Depends(get_db)):
     # calories = await repository_calorie.get_calories(db)
+    print(request.headers)
     return templates.TemplateResponse("norm_calorie.html", {"request": request})
     
     
