@@ -1,8 +1,5 @@
-from __future__ import print_function
 import json
 
-import os.path
-from pathlib import Path
 from httplib2 import Http
 from fastapi.responses import RedirectResponse
 import requests
